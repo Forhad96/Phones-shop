@@ -4,22 +4,30 @@ const Navbar = () => {
   const links = (
     <>
       <li className="block p-1 font-sans text-sm font-normal leading-normal text-inherit antialiased">
-        <NavLink to="/" className="flex items-center" href="#">
+        <NavLink to="/" className={({ isActive, isPending }) =>
+    isPending ? "pending" : isActive ? "text-sky-500 font-extrabold text-lg" : ""
+  }>
           Home
         </NavLink>
       </li>
       <li className="block p-1 font-sans text-sm font-normal leading-normal text-inherit antialiased">
-        <NavLink to="/favorites" className="flex items-center" href="#">
+        <NavLink to="/favorites" className={({ isActive, isPending }) =>
+    isPending ? "pending" : isActive ? "text-sky-500 font-extrabold text-lg" : ""
+  }>
           Favorites
         </NavLink>
       </li>
       <li className="block p-1 font-sans text-sm font-normal leading-normal text-inherit antialiased">
-        <NavLink to="/contact" className="flex items-center" href="#">
+        <NavLink to="/contact" className={({ isActive, isPending }) =>
+    isPending ? "pending" : isActive ? "text-sky-500 font-extrabold text-lg" : ""
+  }>
           Contact
         </NavLink>
       </li>
       <li className="block p-1 font-sans text-sm font-normal leading-normal text-inherit antialiased">
-        <NavLink to="/login" className="flex items-center" href="#">
+        <NavLink to="/login" className={({ isActive, isPending }) =>
+    isPending ? "pending" : isActive ? "text-sky-500 font-extrabold text-lg" : ""
+  }>
           Login
         </NavLink>
       </li>
@@ -32,7 +40,7 @@ const Navbar = () => {
       <a
         href="#"
         className="mr-4 block cursor-pointer py-1.5 font-sans text-base font-medium leading-relaxed text-inherit antialiased">
-        Material Tailwind
+        <span className="text-4xl text-pink-600">F</span> <span className="text-sky-600">International</span>
       </a>
       <ul className="ml-auto mr-8 hidden items-center gap-6 lg:flex">
         {links}
