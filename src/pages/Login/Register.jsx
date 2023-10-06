@@ -1,11 +1,12 @@
 import { useContext } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../Provider/AuthProvider";
 import SocialLogin from "./SocialLogin";
 
 const Register = () => {
   const { createUser, updateUserProfile, emailVerification } =
     useContext(AuthContext);
+    const navigate = useNavigate()
 
   const handleRegister = (e) => {
     e.preventDefault();
@@ -16,6 +17,11 @@ const Register = () => {
     const password = form.get("password");
     const checkbox = form.get("checkbox");
 
+    // validation
+    if(!checkbox){
+      return alert('Please accept terms')
+    }
+    console.log(checkbox);
     // create user in firebase
     createUser(email, password)
       .then((result) => {
@@ -26,6 +32,7 @@ const Register = () => {
             alert(
               "successfully created account check you email and verify you account"
             );
+            navigate('/')
           })
           .then((error) => {
             console.error(error);
