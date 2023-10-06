@@ -1,7 +1,15 @@
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import SocialLogin from "./SocialLogin";
+import { useContext } from "react";
+import { AuthContext } from "../../Provider/AuthProvider";
 
 const Login = () => {
+  const navigate = useNavigate()
+  const {emailSingIn} = useContext(AuthContext)
+  const location = useLocation()
+
+
+
   const handleLogin = (e) => {
     e.preventDefault();
     const form = new FormData(e.currentTarget);
@@ -9,6 +17,17 @@ const Login = () => {
     const password = form.get("password");
     const checkbox = form.get("checkbox");
     console.log(email, password, checkbox);
+
+    // email singIn firebase
+    emailSingIn(email,password)
+    .then(result =>{
+      console.log(result.user);
+      alert('Login successful')
+      navigate(location.state?location.state:'/')
+    })
+    .catch(error =>{
+      console.error(error);
+    })
   };
   return (
     <div className="h-screen flex justify-center items-center">

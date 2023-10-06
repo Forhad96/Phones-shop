@@ -1,4 +1,4 @@
-const Banner = ({handelSearch}) => {
+const Banner = () => {
   return (
     <div className="h-[70vh] relative bg-green-100">
       <img
@@ -7,7 +7,7 @@ const Banner = ({handelSearch}) => {
         alt=""
       />
       <div className="searchbar absolute bottom-[43%] w-full px-20">
-        <form onSubmit={"handleSearch"}>
+        <form >
           <label className="mb-2 text-sm font-medium text-gray-900 sr-only dark:text-white">
             Search
           </label>

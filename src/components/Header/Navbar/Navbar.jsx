@@ -1,34 +1,77 @@
+import { useContext } from "react";
 import { NavLink } from "react-router-dom";
+import { AuthContext } from "../../../Provider/AuthProvider";
 
 const Navbar = () => {
+const {user,logOut} =useContext(AuthContext)
+
+const handleLogOut=()=>{
+  logOut()
+  .then(res=>{
+    console.log(res);
+    alert('successfully Logged out')
+  })
+  .catch(error =>{
+    console.log(error);
+  })
+}
   const links = (
     <>
       <li className="block p-1 font-sans text-sm font-normal leading-normal text-inherit antialiased">
-        <NavLink to="/" className={({ isActive, isPending }) =>
-    isPending ? "pending" : isActive ? "text-sky-500 font-extrabold text-lg" : ""
-  }>
+        <NavLink
+          to="/"
+          className={({ isActive, isPending }) =>
+            isPending
+              ? "pending"
+              : isActive
+              ? "text-sky-500 font-extrabold text-lg"
+              : ""
+          }
+        >
           Home
         </NavLink>
       </li>
       <li className="block p-1 font-sans text-sm font-normal leading-normal text-inherit antialiased">
-        <NavLink to="/favorites" className={({ isActive, isPending }) =>
-    isPending ? "pending" : isActive ? "text-sky-500 font-extrabold text-lg" : ""
-  }>
+        <NavLink
+          to="/favorites"
+          className={({ isActive, isPending }) =>
+            isPending
+              ? "pending"
+              : isActive
+              ? "text-sky-500 font-extrabold text-lg"
+              : ""
+          }
+        >
           Favorites
         </NavLink>
       </li>
       <li className="block p-1 font-sans text-sm font-normal leading-normal text-inherit antialiased">
-        <NavLink to="/contact" className={({ isActive, isPending }) =>
-    isPending ? "pending" : isActive ? "text-sky-500 font-extrabold text-lg" : ""
-  }>
+        <NavLink
+          to="/contact"
+          className={({ isActive, isPending }) =>
+            isPending
+              ? "pending"
+              : isActive
+              ? "text-sky-500 font-extrabold text-lg"
+              : ""
+          }
+        >
           Contact
         </NavLink>
       </li>
       <li className="block p-1 font-sans text-sm font-normal leading-normal text-inherit antialiased">
-        <NavLink to="/login" className={({ isActive, isPending }) =>
-    isPending ? "pending" : isActive ? "text-sky-500 font-extrabold text-lg" : ""
-  }>
-          Login
+        <NavLink
+          to="/login"
+          onClick={handleLogOut}
+          className={({ isActive, isPending }) =>
+            isPending
+              ? "pending"
+              : isActive
+              ? "text-sky-500 font-extrabold text-lg"
+              : ""
+          }
+        >
+          {user ? "LogOut" : "Login"}
         </NavLink>
       </li>
     </>
