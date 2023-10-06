@@ -1,7 +1,6 @@
-
-const Banner = () => {
-    return (
-      <div className="h-[70vh] relative bg-green-100">
+const Banner = ({handelSearch}) => {
+  return (
+    <div className="h-[70vh] relative bg-green-100">
       <img
         className="h-full w-full"
         src="https://images.unsplash.com/photo-1616077168079-7e09a677fb2c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80"
@@ -19,12 +18,8 @@ const Banner = () => {
                 aria-hidden="true"
                 xmlns="http://www.w3.org/2000/svg"
                 fill="none"
-                viewBox="0 0 20 20"
-              >
-                <path
-                  
-                  d="m19 19-4-4m0-7A7 7 0 1 1 1 8a7 7 0 0 1 14 0Z"
-                />
+                viewBox="0 0 20 20">
+                <path d="m19 19-4-4m0-7A7 7 0 1 1 1 8a7 7 0 0 1 14 0Z" />
               </svg>
             </div>
             <input
@@ -37,15 +32,14 @@ const Banner = () => {
             />
             <button
               type="submit"
-              className="text-white absolute right-2.5 bottom-2.5 bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
-            >
+              className="text-white absolute right-2.5 bottom-2.5 bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
               Search
             </button>
           </div>
         </form>
       </div>
     </div>
-    );
+  );
 };
 
 export default Banner;

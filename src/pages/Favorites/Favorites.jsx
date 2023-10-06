@@ -59,7 +59,7 @@ const Favorites = () => {
                 <FavoritesCard key={phone.id} phone={phone}></FavoritesCard>
               ))}
       </div>
-      :
+      
       {favoritePhones.length > 3 && (
         <button
           onClick={() => setShowAll(!showAll)}

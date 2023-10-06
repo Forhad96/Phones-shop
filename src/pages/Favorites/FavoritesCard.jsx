@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-
+import PropTypes from 'prop-types'
 
 const FavoritesCard = ({phone}) => {
   const { id, image, phone_name, brand_name, price, rating } = phone || {};
@@ -41,4 +41,7 @@ const FavoritesCard = ({phone}) => {
     );
 };
 
+FavoritesCard.propTypes = {
+    phone:PropTypes.object.isRequired
+}
 export default FavoritesCard;

@@ -3,6 +3,8 @@ import MainLayout from "../layout/MainLayout";
 import Home from "../pages/Home/Home";
 import PhoneDetails from "../pages/PhoneDetails/PhoneDetails";
 import Favorites from "../pages/Favorites/Favorites";
+import Login from "../pages/Login/Login";
+import Register from "../pages/Login/Register";
 
 
 const myCreatedRouter = createBrowserRouter([
@@ -24,6 +26,14 @@ const myCreatedRouter = createBrowserRouter([
                 path:'/favorites',
                 element:<Favorites></Favorites>,
                 
+            },
+            {
+                path:'/login',
+                element:<Login></Login>
+            },
+            {
+                path:'/register',
+                element:<Register></Register>
             }
         ]
     }
